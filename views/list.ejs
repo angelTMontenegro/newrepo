@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foro Multitemático</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Foro Multitemático</h1>
+    <a href="/create">Crear nueva publicación</a>
+    <ul>
+        <% posts.forEach((post) => { %>
+            <li>
+                <h2><%= post.title %></h2>
+                <p><%= post.content %></p>
+                <% if (post.imageUrl) { %>
+                    <img src="<%= post.imageUrl %>" alt="Imagen relacionada">
+                <% } %>
+                <p>Fecha de creación: <%= post.createdAt.toDateString() %></p>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
